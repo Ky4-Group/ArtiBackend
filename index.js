@@ -48,6 +48,8 @@ app.use('/api/partenaire', require("./routes/partenaire.route"))
 app.use('/api/evenement', require("./routes/evenement.route"))
 app.use('/api/Badge', require("./routes/Badge"))
 app.use('/api/Notification', require("./routes/Notification"))
+app.use('/api/Commande', require("./routes/Commande"))
+app.use('/api/Panier', require("./routes/Panier"))
 
 //const utilisateursController = require("./controllers/utilisateur.controller");
 
