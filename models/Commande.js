@@ -1,12 +1,9 @@
-const { request } = require('express')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const commandeschema = new mongoose.Schema(
-    {
-      /*  idcommande: {
-            type: Number,
-            request: true
-        },*/
+
+
+const panierSchema = new Schema({
+
         idUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -14,5 +11,9 @@ const commandeschema = new mongoose.Schema(
         idPanier: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Panier'}
-    })
-mongoose.model("Commande", commandeschema)
+        
+}, { timestamps: true});
+
+const Commande = mongoose.model('Commande', panierSchema);
+
+module.exports = Commande

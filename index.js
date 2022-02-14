@@ -48,14 +48,9 @@ app.use('/api/partenaire', require("./routes/partenaire.route"))
 app.use('/api/evenement', require("./routes/evenement.route"))
 app.use('/api/Badge', require("./routes/Badge"))
 app.use('/api/Notification', require("./routes/Notification"))
-/*app.use('/api/Commande', require("./routes/Commande"))
-app.use('/api/Panier', require("./routes/Panier"))*/
-//require('./models/Commande')
-//require('./models/Panier')
-//app.use(require('./routes/Commande'))
-//app.use(require('./routes/Panier'))
+app.use('/api/Commande', require("./routes/Commande"))
+app.use('/api/Panier', require("./routes/Panier"))
 
-//const utilisateursController = require("./controllers/utilisateur.controller");
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
