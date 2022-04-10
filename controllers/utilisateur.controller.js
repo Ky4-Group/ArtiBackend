@@ -6,8 +6,24 @@ const { Utilisateur } = require("../models/utilisateur.model");
 
 const index=(req, res, next) => 
 {
+
+
+
+
     Utilisateur.find()
-    .then((utilisateur) =>{res.json({utilisateur})})
+    .then((utilisateur) =>{
+    
+        for (let i=0 ; i<utilisateur.length;i++) {
+          if (utilisateur[i].arts.length==0){
+              utilisateur.splice(i,1);
+              i--; 
+          }
+        }
+        
+        res.json({utilisateur})
+    
+    
+    })
     .catch(error=>{res.json({error})})      
 }
 
@@ -17,12 +33,20 @@ const index=(req, res, next) =>
 ///////////////
 
 
-// const test=(req, res, next) => 
-// {
-//     Utilisateur.findOne()
-//     .then((utilisateur) =>{res.json({arts:utilisateur.arts})})
-//     .catch(error=>{res.json({error})})      
-// }
+//  const test=(req, res, next) => 
+//  {
+//     Art.findById(utilisateur.arts[i], function (err, art) {
+//         if (err)
+//             res.send(err)
+         
+//         x.push(art)
+//        if (i==utilisateur.arts.length-1)
+//        {res.json(x); }
+       
+    
+       
+//     })    
+//  }
 
 
 

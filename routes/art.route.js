@@ -11,6 +11,7 @@ router.get("/all",artController.index)
 router.post("/add",artController.add)
 router.put("/update/:id",artController.update)
 router.delete("/delete/:id",artController.destroy)
+router.get("/getartlastimage",artController.getartlastimage)
 
 ////Image
 var storage = multer.diskStorage({
