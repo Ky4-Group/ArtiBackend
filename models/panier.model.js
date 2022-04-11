@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const panierSchema = mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  paymentResponse: { type: String },
   arts: [
     {
       artId: { type: mongoose.Schema.Types.ObjectId, ref: "Art" },
