@@ -1,12 +1,16 @@
-const express = require('express')
-const router  = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const PanierController = require('../controllers/panier.controller')
+const PanierController = require("../controllers/panier.controller");
 
-router.get('/index',PanierController.index)
-router.post('/show',PanierController.show)
-router.get('/',PanierController.index)
-router.post('/stores',PanierController.stores)
-router.post('/delete',PanierController.destory)
-
-module.exports=router
+router.get("/ShowallCarts", PanierController.ShowallCarts);
+router.post("/GetCartsbyUserid/", PanierController.GetCartsbyUserid);
+router.post("/AddToCart", PanierController.AddToCart);
+router.post("/DeleteItemFromCart", PanierController.DeleteItemFromCart);
+router.post("/totalPrice", PanierController.totalPrice);
+router.post("/getArtDetails/", PanierController.getArtDetails);
+//
+router.post("/incrementQuantity", PanierController.incrementQuantity);
+router.post("/decrementQuantity", PanierController.decrementQuantity);
+//
+module.exports = router;
