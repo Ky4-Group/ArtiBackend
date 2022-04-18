@@ -11,6 +11,7 @@ const panierSchema = new Schema({
     ref: "Panier",
   },
   total: { type: Number },
+  token: { type: String },
 });
 
 const Commande = mongoose.model("Commande", panierSchema);
