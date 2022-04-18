@@ -27,11 +27,12 @@ const show = (req, res, next) => {
 
 //mrigl
 const AddCommande = (req, res, next) => {
-  const { userId, idPanier, total } = req.body;
+  const { userId, idPanier, total ,token } = req.body;
   let pan = new Commande({
     userId: userId,
     idPanier: idPanier,
     total: total,
+    token: token,
   });
   pan
     .save()
