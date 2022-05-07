@@ -32,17 +32,9 @@ const stores = (req, res, next) => {
     
         let badge= new Badge({
             nom:req.body.nom,
-            email:req.body.email,
-            adresse:req.body.adresse,
             image:req.body.image,
 
-        })
-
-
-    /* if (req.file){
-            Badge.image=req.file.path
-        }*/
-       
+        })      
         badge.save()
         .then(response => {
             res.json({
@@ -65,8 +57,6 @@ const update =(req, res, next)=>
     let BadgeID=req.body.BadgeID
     let updateData={
         nom:req.body.nom,
-        email:req.body.email,
-        adresse:req.body.adresse,
         image:req.body.image,
     }
     Badge.findByIdAndUpdate(BadgeID, {$set:updateData})

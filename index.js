@@ -88,7 +88,7 @@ const CONTRACT_ADDRESS =
   const CONTRACT_ABI = configuration.abi;
 
 const web3 = new Web3(
-  Web3.givenProvider || 'http://192.168.1.12:7545'
+  Web3.givenProvider || 'http://172.17.1.59:7545'
 );
 const contract = new web3.eth.Contract(
   CONTRACT_ABI,
@@ -242,7 +242,7 @@ app.use("/api/arts", require("./routes/art.route"));
 
 app.use('/api/partenaires', require("./routes/partenaire.route"))
 app.use('/api/evenement', require("./routes/evenement.route"))
-app.use('/api/Badge', require("./routes/badge.route"))
+app.use('/api/badges', require("./routes/badge.route"))
 app.use('/api/notifications', require("./routes/notification.route"))
 app.use("/api/Commande", require("./routes/commande.route"));
 app.use("/api/Panier", require("./routes/panier.route"));

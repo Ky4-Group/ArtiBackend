@@ -25,13 +25,17 @@ const AddToCart = async (req, res, next) => {
         var verifArt = req.body.artId;
         Panier.findOne({ "arts.artId": verifArt }).then((pannn) => {
           if (pannn) {
+            console.log("increment quantite");
+
             Panier.updateOne(
               { "arts.artId": req.body.artId, paymentResponse: "No" },
               { $inc: { "arts.$.quantity": 1 } },
               { upsert: true, new: true },
+              
               function (err, model) {
                 console.log(err);
               }
+              
             );
           } else {
             //User Mawjoud +Add inside Array
@@ -91,7 +95,7 @@ const GetCartsbyUserid = (req, res, next) => {
 ////////////////////////////////////////////////////////
 //mrigll
 const DeleteItemFromCart = async (req, res, next) => {
-  Panier.find({ userId: req.body.userId, paymentResponse: "No" })
+  Panier.find({ userId: req.body.userId , paymentResponse: "No" })
     .select("-_id -__v -userId")
     .then((carts) => {
       //console.log(carts[0].arts);
@@ -102,7 +106,7 @@ const DeleteItemFromCart = async (req, res, next) => {
         if (carts[0].arts[i]._id == req.body.artId) {
           console.log("found");
           Panier.findOneAndUpdate(
-            { userId: req.body.userId },
+            { userId: req.body.userId , paymentResponse: "No"},
             { $pull: { arts: { _id: req.body.artId } } },
             { upsert: true, new: true },
             function (err, model) {

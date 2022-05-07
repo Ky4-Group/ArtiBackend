@@ -6,12 +6,6 @@ const badgeSchema = new Schema({
     nom: {
         type: String,
     },
-    email: {
-        type: String,
-    },
-    adresse: {
-        type: String,
-    },
     image: {
         type: String,
     },
