@@ -12,20 +12,26 @@ const index=(req, res, next) =>
 
 //mrigl 
 const show = (req, res, next) => {
-    let UserID = req.body.UserID
-    User.findById(UserID)
-    .then(reponse => {
+    let _id= req.params.id
+    User.findById(_id)
+    .then(res => {
         res.json({
-            response
-        })
-    })
-    .catch(error => {
-        res.json({
-            message:'an error Occured'
+            res
         })
     })
 }
+const findbyid=(req,res)=>{
+    User.findById(req.body.id, function (err, user) {
+        if (err)
+            res.send(err)
+         
+     
+    res.json(user);
+    
+    // res.send(user);
+    })  
 
+}
 
 //mrigl 
 const stores = (req, res, next) => {
@@ -105,5 +111,5 @@ const stores = (req, res, next) => {
 // };
 
 module.exports={
-    index,show,stores
+    index,show,stores,findbyid
 }
